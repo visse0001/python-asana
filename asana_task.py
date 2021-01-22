@@ -40,24 +40,12 @@ class CreateTaskAsana:
 
         return response
 
-    def create_task(self):
+    def create_task(self, name: str, notes: str):
         client = self._connect_asana()
         result = client.tasks.create_task({
-            'name': 'Testuje cos po raz drugi',
-            'notes': 'Tworze taska przez api',
+            'name': name,
+            'notes': notes,
             'projects': self.project_gid,
             'parent': None,
             'workspace': self.workspace_gid},
             opt_pretty=True)
-
-task_asana = CreateTaskAsana()
-
-asana_obj = CreateTaskAsana()
-projects_info = asana_obj.set_projects()
-print('Projects info:')
-pprint(projects_info)
-
-
-project_info = asana_obj.set_project()
-print('Project info:')
-pprint(project_info)
