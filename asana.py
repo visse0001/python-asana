@@ -25,9 +25,8 @@ class CreateTaskAsana:
         }
 
         response = requests.get('https://app.asana.com/api/1.0/projects', headers=headers)
-        response = response.json()
 
-        return response
+        return response.json()
 
     def set_project(self):
         headers = {
@@ -36,9 +35,8 @@ class CreateTaskAsana:
         }
 
         response = requests.get(f'https://app.asana.com/api/1.0/projects/{self.project_gid}', headers=headers)
-        response = response.json()
 
-        return response
+        return response.json()
 
     def create_task(self, name: str, notes: str):
         client = self._connect_asana()
