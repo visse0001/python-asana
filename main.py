@@ -1,7 +1,7 @@
 import argparse
 from pprint import pprint
 
-from asana_task import CreateTaskAsana
+from asana import CreateTaskAsana
 
 parser = argparse.ArgumentParser(description='Create your tasks in Asana using API Asana.')
 parser.add_argument('-p', '--projects', action='store_true', help='Show all projects')
@@ -22,4 +22,6 @@ if args.oneproject:
 
 if args.task:
     asana_obj = CreateTaskAsana()
-    send_task = asana_obj.create_task(name='nazwa', notes='notatka')
+    name = input('Task name: ')
+    notes = input('Task notes: ')
+    send_task = asana_obj.create_task(name=name, notes=notes)
