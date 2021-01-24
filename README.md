@@ -1,6 +1,6 @@
 # Python-asana
 
-Create tasks using API Asana.
+A python connector to Asana. Create tasks via CLI.
 
 # Virtual Enviroment
 
@@ -10,6 +10,8 @@ Create a virtual environment:
 To activate a venv:  
 `source venv/bin/activate`
 
+To install requirements:
+`pip install -r requirements.txt`
 
 
 ## Set up
@@ -22,15 +24,17 @@ To get the token follow this [steps](https://asana.com/guide/help/api/api).
 Now you may use command `python main.py --help`. It will return:
 
 ```python
-usage: main.py [-h] [-p] [-o] [-t]
+usage: main.py [-h] [-p] [-o] [-u] [-t] [-l]
 
 Create your tasks in Asana using API Asana.
 
 optional arguments:
   -h, --help        show this help message and exit
-  -p, --projects    Show all projects
-  -o, --oneproject  Show project info
-  -t, --task        Create task
+  -p, --projects    show all projects
+  -o, --oneproject  show project info
+  -u, --usergid     show user gid
+  -t, --task        create task
+  -l, --list        show user's tasks list
 ```
 
 Steps:  
@@ -38,7 +42,11 @@ Steps:
   
 `python main.py -o` and copy the gid of workspace, after that paste it to `.env` ASANA_WORKSPACE_GID.  
 
+`python main.py -u` and copy the user's gid, after that paste it to `.env` ASANA_USER_GID.  
+
 `python main.py -t` input name and notes to create a task.
+
+`python main.py -l` show user's tasks list
  
 
 
