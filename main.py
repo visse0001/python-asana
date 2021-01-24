@@ -36,6 +36,9 @@ if args.task:
 if args.list:
     asana_obj = APIAsana()
     tasks = asana_obj.set_user_tasks()
-    for index, task in enumerate(tasks):
-        index += 1
-        print(index, task)
+    if tasks:
+        for index, task in enumerate(tasks):
+            index += 1
+            print(index, task)
+    else:
+        print('There is no assignment task to you.')

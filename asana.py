@@ -1,5 +1,4 @@
 import os
-from pprint import pprint
 
 import asana
 import requests
@@ -12,9 +11,9 @@ load_dotenv()
 class APIAsana:
     def __init__(self):
         self.token = os.environ.get('ASANA_TOKEN')
-        self.project_gid = str(os.environ.get('ASANA_PROJECT_GID'))
-        self.workspace_gid = str(os.environ.get('ASANA_WORKSPACE_GID'))
-        self.user_gid = str(os.environ.get('ASANA_USER_GID'))
+        self.project_gid = os.environ.get('ASANA_PROJECT_GID')
+        self.workspace_gid = os.environ.get('ASANA_WORKSPACE_GID')
+        self.user_gid = os.environ.get('ASANA_USER_GID')
 
     def _connect_asana(self):
         client = asana.Client.access_token(self.token)
